@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by Rinat Zalyaletdinov
  */
+@SuppressWarnings("unused")
 public class Main {
 
     private static final Logger LOGGER = Logger.getLogger(Main.class);
