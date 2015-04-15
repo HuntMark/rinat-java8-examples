@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.Calendar;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Rinat Zalyaletdinov
@@ -19,7 +20,7 @@ public class Main {
     }
 
     private void go() {
-        dateOverlapping();
+        timeUnitTest();
     }
 
     private void showLengthOfMonth() {
@@ -31,6 +32,10 @@ public class Main {
         LocalDate date1 = LocalDate.of(2015, Calendar.APRIL, 13);
         LocalDate date2 = LocalDate.of(2015, Calendar.APRIL, 14);
         LOGGER.info(date1.isBefore(date2));
+    }
+
+    private void timeUnitTest() {
+        LOGGER.info(String.format("Minutes in hour: %d", TimeUnit.HOURS.toMinutes(1)));
     }
 
 }
