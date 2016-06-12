@@ -39,7 +39,7 @@ public class Main {
   }
 
   private void weekDays() {
-    LocalDate firstOfWeek = LocalDate.now().with(ChronoField.DAY_OF_MONTH, 1);
+    LocalDate firstOfWeek = LocalDate.now().with(ChronoField.DAY_OF_WEEK, 1);
     LOGGER.info(firstOfWeek + " : " + firstOfWeek.getDayOfWeek());
   }
 
