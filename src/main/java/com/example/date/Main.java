@@ -9,9 +9,6 @@ import java.time.temporal.TemporalAdjusters;
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by Rinat Zalyaletdinov
- */
 public class Main {
 
   private static final Logger LOGGER = Logger.getLogger(Main.class);
