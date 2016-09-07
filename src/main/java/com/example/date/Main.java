@@ -54,6 +54,13 @@ public class Main {
 
   private void printLocalDateTime() {
     LocalDateTime now = LocalDateTime.now();
-    LOGGER.info(now.toInstant(ZoneOffset.UTC));
+    String instant = now.toInstant(ZoneOffset.UTC).toString();
+    LOGGER.info(instant);
+    LocalDateTime fromInstant = LocalDateTime.parse(instant, DateTimeFormatter.ISO_DATE_TIME);
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+    String fromInstantFormatted = fromInstant.format(formatter);
+    LOGGER.info(fromInstantFormatted);
+    LocalDateTime fromFormatted = LocalDateTime.parse(fromInstantFormatted, formatter);
+    LOGGER.info(fromFormatted.toInstant(ZoneOffset.UTC));
   }
 }
