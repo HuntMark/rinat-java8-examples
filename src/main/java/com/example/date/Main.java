@@ -2,8 +2,13 @@ package com.example.date;
 
 import org.apache.log4j.Logger;
 
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.YearMonth;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
 import java.time.temporal.TemporalAdjusters;
 import java.util.Calendar;
@@ -19,8 +24,7 @@ public class Main {
   }
 
   private void go() {
-    weekDays();
-    monthDays();
+    printLocalDateTime();
   }
 
   private void showLengthOfMonth() {
@@ -46,5 +50,10 @@ public class Main {
   private void monthDays() {
     LocalDate firstOfMonth = LocalDate.now().with(TemporalAdjusters.lastDayOfMonth());
     LOGGER.info(firstOfMonth + " : " + firstOfMonth.getDayOfWeek());
+  }
+
+  private void printLocalDateTime() {
+    LocalDateTime now = LocalDateTime.now();
+    LOGGER.info(now.toInstant(ZoneOffset.UTC));
   }
 }
