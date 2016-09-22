@@ -1,21 +1,22 @@
 package com.example.date_time_api;
 
-import java.time.DayOfWeek;
-import java.time.Instant;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
-import java.time.format.TextStyle;
-import java.util.Locale;
+import java.time.ZoneId;
 import java.util.TimeZone;
 
 public class Main {
+  private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
+
   public static void main(String[] args) {
-    System.out.println(Instant.now());
-    System.out.println(LocalDateTime.now());
-    System.out.println(DayOfWeek.TUESDAY.getDisplayName(TextStyle.NARROW, new Locale("ru")));
-    System.out.println(TimeZone.getDefault());
+    OffsetDateTime now = OffsetDateTime.now();
+    LOGGER.info(now.toString());
     TimeZone.setDefault(TimeZone.getTimeZone("Europe/Moscow"));
-    System.out.println(OffsetDateTime.now());
-    System.out.println(TimeZone.getDefault());
+    ZoneId zoneId = ZoneId.of("Europe/Moscow");
+    now = OffsetDateTime.of(now.toLocalDateTime(), zoneId.getRules().getOffset(LocalDateTime.now()));
+    LOGGER.info(now.toString());
   }
 }
