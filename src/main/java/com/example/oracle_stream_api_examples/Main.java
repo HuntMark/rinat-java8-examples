@@ -20,6 +20,7 @@ public class Main {
         listing7(transactions);
         listing8(transactions);
         listing9(transactions);
+        listing10();
     }
 
     public static List<Long> findTransactionIdsByType(List<Transaction> transactions, Transaction.Type type) {
@@ -56,5 +57,15 @@ public class Main {
                 .filter(tr -> tr.getType() == Transaction.Type.GROCERY)
                 .findAny()
                 .ifPresent(System.out::println);
+    }
+
+    private static void listing10() {
+        List<String> words = Arrays.asList("Oracle", "Java", "Magazine");
+        List<Integer> wordLengths =
+                words
+                        .stream()
+                        .map(String::length)
+                        .collect(Collectors.toList());
+        System.out.println(wordLengths);
     }
 }
