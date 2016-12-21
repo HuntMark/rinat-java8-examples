@@ -21,6 +21,7 @@ public class Main {
         listing8(transactions);
         listing9(transactions);
         listing10();
+        listing11();
     }
 
     public static List<Long> findTransactionIdsByType(List<Transaction> transactions, Transaction.Type type) {
@@ -67,5 +68,11 @@ public class Main {
                         .map(String::length)
                         .collect(Collectors.toList());
         System.out.println(wordLengths);
+    }
+
+    private static void listing11() {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+        int sum = numbers.stream().reduce(0, (a, b) -> a + b);
+        System.out.println(sum);
     }
 }
