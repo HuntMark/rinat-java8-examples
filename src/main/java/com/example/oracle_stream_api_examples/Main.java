@@ -22,6 +22,7 @@ public class Main {
         listing9(transactions);
         listing10();
         listing11();
+        listing12();
     }
 
     public static List<Long> findTransactionIdsByType(List<Transaction> transactions, Transaction.Type type) {
@@ -74,5 +75,13 @@ public class Main {
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
         int sum = numbers.stream().reduce(0, (a, b) -> a + b);
         System.out.println(sum);
+    }
+
+    private static void listing12() {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+        Integer product = numbers.stream().reduce(1, (a, b) -> a * b);
+        System.out.println("Product is " + product);
+        Integer max = numbers.stream().reduce(Integer.MIN_VALUE, Integer::max);
+        System.out.println("Maximum is " + max);
     }
 }
