@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -16,6 +17,9 @@ public class Main {
                 new Transaction(5L, Transaction.Type.COMMUNAL, new BigDecimal(200)));
 
         System.out.println(Arrays.toString(findTransactionIdsByType(transactions, Transaction.Type.GROCERY).toArray()));
+        listing7(transactions);
+        listing8(transactions);
+        listing9(transactions);
     }
 
     public static List<Long> findTransactionIdsByType(List<Transaction> transactions, Transaction.Type type) {
@@ -25,5 +29,32 @@ public class Main {
                 .sorted(Comparator.comparing(Transaction::getAmount).reversed())
                 .map(Transaction::getId)
                 .collect(Collectors.toList());
+    }
+
+    private static void listing7(List<Transaction> transactions) {
+        boolean expensive =
+                transactions
+                        .stream()
+                        .allMatch(tr -> tr.getAmount().compareTo(new BigDecimal(100)) > 0);
+
+        System.out.println("Are they all expensive? " + expensive);
+    }
+
+    private static void listing8(List<Transaction> transactions) {
+        Optional<Transaction> any =
+                transactions
+                        .stream()
+                        .filter(tr -> tr.getType() == Transaction.Type.GROCERY)
+                        .findAny();
+
+        System.out.println("Any transaction of grocery: " + any.orElse(null));
+    }
+
+    private static void listing9(List<Transaction> transactions) {
+        transactions
+                .stream()
+                .filter(tr -> tr.getType() == Transaction.Type.GROCERY)
+                .findAny()
+                .ifPresent(System.out::println);
     }
 }
