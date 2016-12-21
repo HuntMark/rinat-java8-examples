@@ -1,4 +1,4 @@
-package com.example.oracle_stream_api_examples;
+package com.example.oracle_stream_api_examples.part1;
 
 import java.util.Arrays;
 import java.util.List;

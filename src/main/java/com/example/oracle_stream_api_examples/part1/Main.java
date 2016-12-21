@@ -1,4 +1,6 @@
-package com.example.oracle_stream_api_examples;
+package com.example.oracle_stream_api_examples.part1;
+
+import com.example.oracle_stream_api_examples.Transaction;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
