@@ -23,6 +23,7 @@ public class Main {
         listing10();
         listing11();
         listing12();
+        listing14(transactions);
     }
 
     public static List<Long> findTransactionIdsByType(List<Transaction> transactions, Transaction.Type type) {
@@ -83,5 +84,10 @@ public class Main {
         System.out.println("Product is " + product);
         Integer max = numbers.stream().reduce(Integer.MIN_VALUE, Integer::max);
         System.out.println("Maximum is " + max);
+    }
+
+    private static void listing14(List<Transaction> transactions) {
+        Integer sum = transactions.stream().mapToInt(tr -> tr.getAmount().intValue()).sum();
+        System.out.println(sum);
     }
 }
