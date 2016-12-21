@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) {
@@ -24,6 +25,7 @@ public class Main {
         listing11();
         listing12();
         listing14(transactions);
+        listing15();
     }
 
     public static List<Long> findTransactionIdsByType(List<Transaction> transactions, Transaction.Type type) {
@@ -89,5 +91,13 @@ public class Main {
     private static void listing14(List<Transaction> transactions) {
         Integer sum = transactions.stream().mapToInt(tr -> tr.getAmount().intValue()).sum();
         System.out.println(sum);
+    }
+
+    private static void listing15() {
+        IntStream oddNumbers =
+                IntStream
+                        .rangeClosed(10, 30)
+                        .filter(n -> n % 2 == 1);
+        oddNumbers.forEach(System.out::println);
     }
 }
