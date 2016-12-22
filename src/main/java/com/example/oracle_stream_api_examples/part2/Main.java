@@ -31,6 +31,8 @@ public class Main {
         listing2();
         listing7();
         listing11(transactions);
+        listing12(transactions);
+        listing13(transactions);
     }
 
     private static void listing2() {
@@ -60,5 +62,21 @@ public class Main {
                         .stream()
                         .collect(Collectors.counting());
         System.out.println("How many transactions? " + howManyTransactions);
+    }
+
+    private static void listing12(List<Transaction> transactions) {
+        int totalValue =
+                transactions
+                        .stream()
+                        .collect(Collectors.summingInt(tr -> tr.getAmount().intValue()));
+        System.out.println("Total value: " + totalValue);
+    }
+
+    private static void listing13(List<Transaction> transactions) {
+        double average =
+                transactions
+                        .stream()
+                        .collect(Collectors.averagingInt(tr -> tr.getAmount().intValue()));
+        System.out.println("Average: " + average);
     }
 }
