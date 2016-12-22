@@ -30,6 +30,10 @@ public class Main {
     }
 
     private static void listing7() throws IOException {
+        /*
+        In a nutshell, flatMap lets you replace each value of a stream with another stream,
+        and then it concatenates all the generated streams into one single stream.
+         */
         Files.lines(Paths.get("stuff.txt"))
                 .map(line -> line.split("\\s+"))
                 .flatMap(Arrays::stream)
