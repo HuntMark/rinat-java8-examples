@@ -3,6 +3,7 @@ package com.example.date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.util.Calendar;
@@ -14,35 +15,42 @@ import java.util.concurrent.TimeUnit;
 public class AboutDateAndTimeExamples {
     public static void main(String[] args) throws Exception {
         printDelimeter();
-        printMaxDateValue();
-        printDelimeter();
-        testSunday();
-        printDelimeter();
-        testCalendarMs();
-        printDelimeter();
-        testFormat();
-        printDelimeter();
-        testTzMoscow();
-        printDelimeter();
-        testTzParis();
-        printDelimeter();
-        testGmt5();
-        printDelimeter();
-        testWinterTime();
-        printDelimeter();
-        testSummerTime();
-        printDelimeter();
-        testMissing();
-        printDelimeter();
-        testWinterDay();
-        printDelimeter();
-        testSummerDay();
-        printDelimeter();
-        testSqlTime();
-        printDelimeter();
-        testLeapSecond1();
-        printDelimeter();
-        testLeapSecond2();
+        printOffsetDateTimeWithUTCtz();
+//        printDelimeter();
+//        printMaxDateValue();
+//        printDelimeter();
+//        testSunday();
+//        printDelimeter();
+//        testCalendarMs();
+//        printDelimeter();
+//        testFormat();
+//        printDelimeter();
+//        testTzMoscow();
+//        printDelimeter();
+//        testTzParis();
+//        printDelimeter();
+//        testGmt5();
+//        printDelimeter();
+//        testWinterTime();
+//        printDelimeter();
+//        testSummerTime();
+//        printDelimeter();
+//        testMissing();
+//        printDelimeter();
+//        testWinterDay();
+//        printDelimeter();
+//        testSummerDay();
+//        printDelimeter();
+//        testSqlTime();
+//        printDelimeter();
+//        testLeapSecond1();
+//        printDelimeter();
+//        testLeapSecond2();
+    }
+
+    private static void printOffsetDateTimeWithUTCtz() {
+        OffsetDateTime utc = OffsetDateTime.now(ZoneOffset.UTC);
+        System.out.println(utc);
     }
 
     private static void printMaxDateValue() {
